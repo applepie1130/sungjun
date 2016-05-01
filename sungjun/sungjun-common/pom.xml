@@ -5,6 +5,7 @@
 
 	<groupId>com.sungjun.common</groupId>
 	<artifactId>sungjun-common</artifactId>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
 	<name>sungjun-common</name>

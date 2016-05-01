@@ -5,6 +5,7 @@
 
 	<groupId>com.sungjun.api</groupId>
 	<artifactId>sungjun-api</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 
 	<name>sungjun-api</name>
