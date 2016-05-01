@@ -5,6 +5,8 @@
 	<artifactId>sungjun</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
+	<name>sungjun</name>
+	<description>Parents module project</description>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -14,7 +16,7 @@
 	</parent>
 
 	<modules>
-		<module>sungjun-api</module>
 		<module>sungjun-common</module>
+		<module>sungjun-api</module>
 	</modules>
 </project>

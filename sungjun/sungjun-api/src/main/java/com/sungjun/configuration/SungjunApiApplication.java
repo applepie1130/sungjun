@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@ComponentScan(basePackages = "com.sungjun")
 @Import({AppConfig.class})
 public class SungjunApiApplication {
 	public static void main(String[] args) {
