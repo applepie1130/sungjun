@@ -18,7 +18,12 @@ public class NewsController {
 	
 	@Autowired(required=false)
 	NewsService newsService;
-	
+
+	/**
+	 * 오늘의 말씀
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/daily-qt",
 			method = RequestMethod.GET,
@@ -33,6 +38,11 @@ public class NewsController {
 		return newsService.getDailyQTData(paramMap);
 	}
 	
+	/**
+	 * 네이트 실시간 랭킹뉴스 - 시사
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/sisa-rank",
 			method = RequestMethod.GET,
@@ -47,6 +57,11 @@ public class NewsController {
 		return newsService.getSisaRankingNewsList(paramMap);
 	}
 	
+	/**
+	 * 네이트 실시간 랭킹뉴스 - 연예
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/entertainment-rank",
 			method = RequestMethod.GET,
@@ -61,7 +76,11 @@ public class NewsController {
 		return newsService.getEntertainmentRankingNewsList(paramMap);
 	}
 	
-
+	/**
+	 * 네이트 실시간 랭킹뉴스 - 스포츠
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/sports-rank",
 			method = RequestMethod.GET,
@@ -76,6 +95,12 @@ public class NewsController {
 		return newsService.getSportsRankingNewsList(paramMap);
 	}
 	
+	
+	/**
+	 * 네이버 실시간 검색어
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/naver-realrank",
 			method = RequestMethod.GET,
@@ -90,6 +115,12 @@ public class NewsController {
 		return newsService.getRealRankWithNaverList(paramMap);
 	}
 	
+	
+	/**
+	 * 다음 실시간 검색어
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/daum-realrank",
 			method = RequestMethod.GET,
@@ -104,8 +135,11 @@ public class NewsController {
 		return newsService.getRealRankWithDaumList(paramMap);
 	}
 	
-	
-	
+	/**
+	 * 이 시각 상한가 종목 (코스피) 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/finance-upper-kospi",
 			method = RequestMethod.GET,
@@ -120,6 +154,11 @@ public class NewsController {
 		return newsService.getKOSPIUpperList(paramMap);
 	}
 	
+	/**
+	 * 이 시각 상한가 종목 (코스닥) 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/finance-upper-kosdaq",
 			method = RequestMethod.GET,
@@ -134,6 +173,11 @@ public class NewsController {
 		return newsService.getKOSDAQUpperList(paramMap);
 	}
 
+	/**
+	 * 증권 트랜드 랭킹 
+	 * 
+	 * @return
+	 */
 	@RequestMapping(
 			value="/finance-trendrank",
 			method = RequestMethod.GET,

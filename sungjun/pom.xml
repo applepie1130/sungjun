@@ -18,5 +18,6 @@
 	<modules>
 		<module>sungjun-common</module>
 		<module>sungjun-api</module>
+		<module>sungjun-web</module>
 	</modules>
 </project>
