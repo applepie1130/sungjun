@@ -1,9 +1,13 @@
-package com.main;
+package com.sungjun.configuration;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "com.sungjun")
 public class SungjunWebApplication {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.main;
+package com.sungjun.configuration;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;

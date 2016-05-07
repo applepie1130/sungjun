@@ -1,0 +1,14 @@
+
+
+server:
+  port: 8020
+  
+
+spring:
+      
+  velocity:
+    resource-loader-path: /WEB-INF/velocity/
+
+  profiles:
+    active: local
+    

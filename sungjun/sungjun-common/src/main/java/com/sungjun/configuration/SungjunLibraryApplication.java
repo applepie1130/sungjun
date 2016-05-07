@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackages ="com.sungjun.configuration")
+@ComponentScan(basePackages ="com.sungjun")
 public class SungjunLibraryApplication {
 
 	public static void main(String[] args) {
