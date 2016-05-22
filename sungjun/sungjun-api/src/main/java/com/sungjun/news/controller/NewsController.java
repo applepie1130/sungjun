@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sungjun.news.service.NewsService;
@@ -27,14 +26,10 @@ public class NewsController {
 	 */
 	@RequestMapping(
 			value="/daily-qt",
-			method = RequestMethod.POST,
+			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE
 			)
-	public Map<String, Object> getDailyQTData( @RequestParam(value="name", defaultValue="test") String name ) {
-		
-		System.out.println("=============================");
-		System.out.println("Paramenter Name : " + name);
-		System.out.println("=============================");
+	public Map<String, Object> getDailyQTData() {
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
