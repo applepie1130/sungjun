@@ -9,6 +9,7 @@ public class NewsController {
 
 	@RequestMapping(value="/news")
 	public String findNewsMainPage (Model model) {
+		
 		return "/news/news";
 	}
 }

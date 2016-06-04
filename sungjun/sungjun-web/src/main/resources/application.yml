@@ -1,11 +1,11 @@
 
 
 server:
-  port: 8020
+  port: 8080
   
 
 spring:
-      
+
   velocity:
     resource-loader-path: /WEB-INF/velocity/
 
