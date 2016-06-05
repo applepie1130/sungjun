@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sungjun.news.service.NewsService;
+import com.sungjun.news.service.NewsAPIService;
 
 @RestController
 @RequestMapping("/api/news/")
-public class NewsController {
+public class NewsAPIController {
 	
 	@Autowired(required=false)
-	NewsService newsService;
+	NewsAPIService newsService;
 
 	/**
 	 * 오늘의 말씀
@@ -27,7 +27,7 @@ public class NewsController {
 	 */
 	@RequestMapping(
 			value="/daily-qt",
-			method = RequestMethod.POST,
+			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE
 			)
 	public Map<String, Object> getDailyQTData( @RequestParam(value="name", defaultValue="test") String name ) {

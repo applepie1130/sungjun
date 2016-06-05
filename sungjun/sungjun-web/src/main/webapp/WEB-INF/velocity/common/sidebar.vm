@@ -1,0 +1,31 @@
+<aside class="main-sidebar">
+	<section class="sidebar">
+		<ul class="sidebar-menu">
+			<li class="header">Main Menu</li> 
+		
+			<li class="$!{sidebarMenuData.home}" ><a href="/"><i class="fa fa-home"></i><span>Home</span></a></li>
+			
+			<li class="$!{sidebarMenuData.news}" ><a href="/news"><i class="fa fa-newspaper-o"></i><span>News</span></a></li>
+			
+			<li class="$!{sidebarMenuData.blogs} treeview"><a href="/"> <i class="fa fa-hashtag"></i><span>Blogs</span><i class="fa fa-angle-left pull-right"></i></a> 
+				<ul class="treeview-menu">
+					<li class="$!{sidebarMenuData.dailylife}"><a href="/"><i class="fa fa-child"></i>일상</a></li>
+					<li class="$!{sidebarMenuData.devstory}"><a href="/"><i class="fa fa-desktop"></i>개발 이야기</a></li>
+					<li class="$!{sidebarMenuData.cooking}"><a href="/"><i class="fa fa-spoon"></i>나도 요리사!</a></li>
+					<li class="$!{sidebarMenuData.movie}"><a href="/"><i class="fa fa-film"></i>영화와 함께</a></li>
+					<li class="$!{sidebarMenuData.book}"><a href="/"><i class="fa fa-book"></i>책과 함께</a></li>
+					<li class="$!{sidebarMenuData.music}"><a href="/"><i class="fa fa-music"></i>음악과 함께</a></li>
+				</ul>
+			</li>
+			
+			<li class="$!{sidebarMenuData.guestbook}" ><a href="/"><i class="fa fa-pencil"></i><span>Guest Book</span></a></li>
+			
+			<li class="$!{sidebarMenuData.devtools} treeview"><a href="/"> <i class="fa fa-terminal"></i><span>Dev Tools</span><i class="fa fa-angle-left pull-right"></i></a>
+				<ul class="treeview-menu">
+					<li class="$!{sidebarMenuData.codegen}"><a href="/codegen"><i class="fa fa-code"></i> Code Gen</a></li>
+					<li class="$!{sidebarMenuData.github}"><a href="https://github.com/applepie1130/sungjun/tree/master/sungjun"><i class="fa fa-github"></i> SungJun's Github</a></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</aside>

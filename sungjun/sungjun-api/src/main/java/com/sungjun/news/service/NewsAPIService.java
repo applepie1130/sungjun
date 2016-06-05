@@ -11,7 +11,7 @@ import com.sungjun.common.FileCommonUtils;
 
 @Service
 @Transactional
-public class NewsService {
+public class NewsAPIService {
 
 	@Autowired
 	FileCommonUtils fileCommonUtils;
