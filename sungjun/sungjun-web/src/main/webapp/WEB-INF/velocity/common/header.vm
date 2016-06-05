@@ -12,5 +12,7 @@
 <link rel="stylesheet" href="/webjars/adminlte/2.3.3/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
 <link rel="stylesheet" href="/webjars/adminlte/2.3.3/dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="/webjars/adminlte/2.3.3/dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="/webjars/adminlte/2.3.3/plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="/webjars/adminlte/2.3.3/plugins/daterangepicker/daterangepicker-bs3.css">
 
 </head>
