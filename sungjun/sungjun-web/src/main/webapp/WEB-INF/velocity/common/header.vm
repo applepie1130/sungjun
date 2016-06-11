@@ -15,4 +15,6 @@
 <link rel="stylesheet" href="/webjars/adminlte/2.3.3/plugins/datepicker/datepicker3.css">
 <link rel="stylesheet" href="/webjars/adminlte/2.3.3/plugins/daterangepicker/daterangepicker-bs3.css">
 
+<link rel="stylesheet" href="/webjars/CodeMirror/4.8.0/theme/mbo.css">
+<link rel="stylesheet" href="/webjars/CodeMirror/4.8.0/lib/codemirror.css">
 </head>

@@ -2,9 +2,11 @@
 #parse( "/common/header.vm" )
 <!-- #* [E] COMMON HEADER *# -->
 
-<body class="hold-transition skin-blue sidebar-mini">
-	<div class="wrapper">
+<!-- <body class="hold-transition skin-blue sidebar-mini"> -->
+<body class="skin-blue layout-boxed sidebar-mini">
 
+	<!-- #* [S]	WRAPPER *# -->
+	<div class="wrapper">
 		<!-- #* [S]	COMMON GNB *# -->
 		#parse( "/common/gnb.vm" )
 		<!-- #* [E]	COMMON GNB *# -->
@@ -15,10 +17,9 @@
 
 		<!-- #* [S] CONTENTS AREA *# -->
 		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Home <small>Version 1.0</small>
+					Home <small>ㅋㅋ</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-home"></i> SungJun's Home</a></li>
@@ -26,28 +27,28 @@
 				</ol>
 			</section>
 
-			<!-- Main content -->
 			<section class="content">
-			
+
 				<div class="row">
 					<section class="col-md-9 connectedSortable ui-sortable">
 						<div class="box box-widget">
 							<div class="box-header with-border">
 								<div class="user-block">
-									<img class="img-circle" src="https://scontent.xx.fbcdn.net/v/t1.0-9/10959879_344170772434518_3379816990045392658_n.jpg?oh=b25351fb15e7bfb0ebcc798146d9e5f7&oe=580CB539" alt="User Image" />
-									 <span class="username"><a href="javacript:void(0);">오늘의 말씀</a></span>
-									 <span class="description">Shared publicly - $!{dailyQTData.searchTime} Today</span>
+									<img class="img-circle"
+										src="https://scontent.xx.fbcdn.net/v/t1.0-9/10959879_344170772434518_3379816990045392658_n.jpg?oh=b25351fb15e7bfb0ebcc798146d9e5f7&oe=580CB539"
+										alt="User Image" /> <span class="username"><a
+										href="javacript:void(0);">오늘의 말씀</a></span> <span class="description">Shared
+										publicly - $!{dailyQTData.searchTime} Today</span>
 								</div>
 							</div>
 							<div class="box-body">
-								<p>
-									$!{dailyQTData.contents}
-								</p>
+								<p>$!{dailyQTData.contents}</p>
 							</div>
 						</div>
 					</section>
-	
+
 					<section class="col-md-3 connectedSortable ui-sortable">
+						<!-- #* [S] calendar *# -->
 						<div class="box box-solid bg-green-gradient">
 							<div class="box-header">
 								<i class="fa fa-calendar"></i>
@@ -57,40 +58,55 @@
 								<div id="calendar" style="width: 100%"></div>
 							</div>
 						</div>
-						
-						<div class="box box-widget">
-							<div class="box-header with-border bg-green" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
-								<h3 class="box-title">NAVER</h3>
+						<!-- #* [E] calendar *# -->
+
+						<!-- #* [S] real ranking *# -->
+						<div class="box box-solid">
+							<div class="box-header with-border">
+								<h3 class="box-title">실시간 검색어</h3>
 							</div>
-							<div class="box-footer no-padding">
-								<ul class="nav nav-stacked">
-									#foreach( $eachData in $!{naverRealRankList} )
-									<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left:10px;">$!{eachData.title}</span> <span class="pull-left badge bg-green">$!{eachData.rank}</span></a></li>
-									#end
-								</ul>
+							<div class="box-body">
+								<div class="box-group" id="accordion">
+									<div class="box-header with-border bg-green" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
+										<h3 data-toggle="collapse" data-parent="#accordion" href="#collapseNaverRealRanking" class="box-title">NAVER</h3>
+									</div>
+									<div id="collapseNaverRealRanking" class="panel-collapse collapse in">
+										<div id="collapseNaverRealRanking" class="box-footer no-padding">
+											<ul class="nav nav-stacked">
+												#foreach( $eachData in $!{naverRealRankList} )
+												<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left: 10px;">$!{eachData.title}</span> <span class="pull-left badge bg-green">$!{eachData.rank}</span></a></li>
+												#end
+											</ul>
+										</div>
+									</div>
+									
+									<div class="box-header with-border bg-blue" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
+										<h3 data-toggle="collapse" data-parent="#accordion" href="#collapseDaumRealRanking" class="box-title">DAUM</h3>
+									</div>
+									<div id="collapseDaumRealRanking" class="panel-collapse collapse">
+										<ul class="nav nav-stacked">
+											#foreach( $eachData in $!{daumRealRankList} )
+											<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left: 10px;">$!{eachData.title}</span> <span class="pull-left badge bg-blue">$!{eachData.rank}</span></a></li>
+											#end
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
+						<!-- #* [E] real ranking *# -->
 						
-						<div class="box box-widget">
-							<div class="box-header with-border bg-blue" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
-								<h3 class="box-title">DAUM</h3>
-							</div>
-							<div class="box-footer no-padding">
-								<ul class="nav nav-stacked">
-									#foreach( $eachData in $!{daumRealRankList} )
-									<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left:10px;">$!{eachData.title}</span> <span class="pull-left badge bg-blue">$!{eachData.rank}</span></a></li>
-									#end
-								</ul>
-							</div>
-						</div>
 					</section>
 				</div>
 			</section>
 		</div>
-		<!-- /.content-wrapper -->
 		<!-- #* [E] CONTENTS AREA *# -->
+		
+		<!-- #* [S] Common BODYBOTTOM *# -->
+		#parse( "/common/bodyBottom.vm" )
+		<!-- #* [E] Common BODYBOTTOM *# -->
 	</div>
-	<!-- ./wrapper -->
+	<!-- #* [E]	WRAPPER *# -->
+	
 
 	<!-- #* [S] Common BODYJS *# -->
 	#parse( "/common/bodyJS.vm" )
