@@ -28,38 +28,63 @@
 
 			<!-- Main content -->
 			<section class="content">
-
-				<section class="col-lg-7 connectedSortable ui-sortable"></section>
-
-				<section class="col-lg-5 connectedSortable ui-sortable">
-					<div class="box box-solid bg-green-gradient">
-						<div class="box-header">
-							<i class="fa fa-calendar"></i>
-
-							<h3 class="box-title">Calendar</h3>
-							<!-- tools box -->
-							<div class="pull-right box-tools">
-								<!-- button with a dropdown -->
-								<button type="button" class="btn btn-success btn-sm"
-									data-widget="collapse">
-									<i class="fa fa-minus"></i>
-								</button>
-								<button type="button" class="btn btn-success btn-sm"
-									data-widget="remove">
-									<i class="fa fa-times"></i>
-								</button>
+			
+				<div class="row">
+					<section class="col-md-9 connectedSortable ui-sortable">
+						<div class="box box-widget">
+							<div class="box-header with-border">
+								<div class="user-block">
+									<img class="img-circle" src="https://scontent.xx.fbcdn.net/v/t1.0-9/10959879_344170772434518_3379816990045392658_n.jpg?oh=b25351fb15e7bfb0ebcc798146d9e5f7&oe=580CB539" alt="User Image" />
+									 <span class="username"><a href="javacript:void(0);">오늘의 말씀</a></span>
+									 <span class="description">Shared publicly - $!{dailyQTData.searchTime} Today</span>
+								</div>
 							</div>
-							<!-- /. tools -->
+							<div class="box-body">
+								<p>
+									$!{dailyQTData.contents}
+								</p>
+							</div>
 						</div>
-						<!-- /.box-header -->
-						<div class="box-body no-padding">
-							<!--The calendar -->
-							<div id="calendar" style="width: 100%"></div>
+					</section>
+	
+					<section class="col-md-3 connectedSortable ui-sortable">
+						<div class="box box-solid bg-green-gradient">
+							<div class="box-header">
+								<i class="fa fa-calendar"></i>
+								<h3 class="box-title">Calendar</h3>
+							</div>
+							<div class="box-body no-padding">
+								<div id="calendar" style="width: 100%"></div>
+							</div>
 						</div>
-						<!-- /.box-body -->
-					</div>
-				</section>
-
+						
+						<div class="box box-widget">
+							<div class="box-header with-border bg-green" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
+								<h3 class="box-title">NAVER</h3>
+							</div>
+							<div class="box-footer no-padding">
+								<ul class="nav nav-stacked">
+									#foreach( $eachData in $!{naverRealRankList} )
+									<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left:10px;">$!{eachData.title}</span> <span class="pull-left badge bg-green">$!{eachData.rank}</span></a></li>
+									#end
+								</ul>
+							</div>
+						</div>
+						
+						<div class="box box-widget">
+							<div class="box-header with-border bg-blue" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
+								<h3 class="box-title">DAUM</h3>
+							</div>
+							<div class="box-footer no-padding">
+								<ul class="nav nav-stacked">
+									#foreach( $eachData in $!{daumRealRankList} )
+									<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left:10px;">$!{eachData.title}</span> <span class="pull-left badge bg-blue">$!{eachData.rank}</span></a></li>
+									#end
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
 			</section>
 		</div>
 		<!-- /.content-wrapper -->
@@ -72,11 +97,12 @@
 	<!-- #* [E] Common BODYJS *# -->
 
 	<script type="text/javascript">
-		jQuery(function () {
+		jQuery(function() {
 			"use strict";
-		  
+
 			// The Calender
-			jQuery("#calendar").datepicker("setDate", jQuery.datepicker.formatDate("yymmdd", new Date()));
+			jQuery("#calendar").datepicker("setDate",
+					jQuery.datepicker.formatDate("yymmdd", new Date()));
 		});
 	</script>
 </body>
