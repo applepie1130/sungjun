@@ -1,9 +1,16 @@
 package com.sungjun.news.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +38,6 @@ public class NewsAPIController {
 			produces = MediaType.APPLICATION_JSON_VALUE
 			)
 	public Map<String, Object> getDailyQTData( @RequestParam(value="name", defaultValue="test") String name ) {
-		
-		System.out.println("=============================");
-		System.out.println("Paramenter Name : " + name);
-		System.out.println("=============================");
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
@@ -195,6 +198,73 @@ public class NewsAPIController {
 		paramMap.put("filePath", "/tank0/batch/NaverTrendRankList.json");
 		
 		return newsService.getFinanceTrendRankList(paramMap);
+	}
+	
+	
+	/**
+	 * Crawling TEST
+	 * 
+	 * @return
+	 */
+	@RequestMapping(
+			value="/crawling",
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE
+			)
+	public List<Map<String, String>> getCrawling() {
+		
+		List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
+		
+		String url = "http://news.nate.com/rank/?mid=n1000";
+		int rank;
+		
+		try {
+			Document doc = Jsoup.connect(url).get();
+			
+			
+			/**
+			 * [1] 1~5위 기사 처리 
+			 */
+			// 1~5 위 기사
+			Elements topRankArticle = doc.select("#contentsWraper .postRankSubjectList .mlt01 a");
+			Elements topRankCpName= doc.select("#contentsWraper .postRankSubjectList .mlt01 .medium");
+			
+			// 1~5위 기사 처리기사 정보
+			for (Element element : topRankArticle) {
+				Map<String, String> resultMap = new HashMap<String, String>();
+				
+				resultMap.put("link", element.select("a").attr("href"));
+				resultMap.put("imageUrl", element.select(".mediatype img").attr("src").replaceAll("http://thumbnews.nateimg.co.kr/news90/", ""));
+				resultMap.put("title", element.select(".tb strong").text());
+				resultMap.put("contents", element.select(".tb").text());
+				
+				resultList.add(resultMap);
+				resultMap = null;
+			}
+			
+//			Iterator<Map<String, String>> iterator = resultList.iterator();
+//			while (iterator.hasNext()) {
+//				
+//				iterator.next().put("cpNm", value);
+//				
+//			}
+			
+			for (Element element : topRankCpName) {
+				
+			}
+			
+			
+			
+			
+					
+			
+//			resultList.add();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return resultList;
 	}
 	
 }

@@ -19,7 +19,7 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					Code Generator <small> ING...</small>
+					Code Generator <small></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-home"></i> SungJun's Home</a></li>
@@ -30,43 +30,36 @@
 			<section class="content">
 				<div class="row">
 					<div class="col-lg-6">
-						<div class="bs-example bs-navbar-top-example" data-example-id="navbar-fixed-to-top">
-							<nav class="navbar navbar-default">
-								<div class="container-fluid">
-									<div class="navbar-header">
-										<a class="navbar-brand" href="#"><i class="fa fa-chevron-right"></i> Paste Fields</a>
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Paste Fields</h3>
+							</div>
+							<div class="box-body">
+								<textarea id="queryEditor" name="queryEditor" style="display: none;"></textarea>
+							</div>
+						</div>
+					</div>
+					
+	                <div class="col-lg-6">
+	                	<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Copy Fields</h3>
+								<div class="box-tools pull-right">
+									<div class="btn-group open">
+										<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bars"></i></button>
+										<ul class="dropdown-menu pull-right" role="menu">
+											<li><a href="#" id="navCamel">CamelCase</a></li>
+											<li><a href="#" id="navVO">VO</a></li>
+											<li><a href="#" id="navResultMap">ResultMap</a></li>
+											<li><a href="#" id="navSQL">SQL</a></li>
+										</ul>
 									</div>
 								</div>
-							</nav>
-						</div>
-						<textarea id="queryEditor" name="queryEditor" style="display: none;"></textarea>
-					</div>
-	                <div class="col-lg-6">
-		                <div class="bs-example bs-navbar-top-example" data-example-id="navbar-fixed-to-top">
-								<nav class="navbar navbar-default">
-									<div class="container-fluid">
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-											<a class="navbar-brand" href="#"><i class="fa fa-chevron-right"></i> Copy Fields</a>
-										</div>
-										<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-											<ul class="nav navbar-nav">
-												<li><a href="#" id="navCamel">CamelCase</a></li>
-												<li><a href="#" id="navVO">VO</a></li>
-												<li><a href="#" id="navResultMap">ResultMap</a></li>
-												<li><a href="#" id="navSQL">SQL</a></li>
-											</ul>
-										</div>
-									</div>
-								</nav>
 							</div>
-							<textarea id="queryViewer" name="queryViewer" style="display: none;"></textarea>
-					</div>
+							<div class="box-body">
+								<textarea id="queryViewer" name="queryViewer" style="display: none;"></textarea>
+							</div>
+						</div>
 				</div>
 			</section>
 		</div>
@@ -186,7 +179,7 @@
 				/* #* [S] Trigger Event *# */
 				// for Example
   				queryEditor.setValue("apple_pie1130\nkim_sung_jun\nhello_world");
-  				jQuery("#navCamel").trigger("click");
+  				jQuery("#navVO").trigger("click");
   				/* #* [E] Trigger Event *# */
 
 				/* #* [S] Business Logics *# */

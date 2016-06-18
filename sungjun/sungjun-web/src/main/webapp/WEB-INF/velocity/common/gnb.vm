@@ -1,6 +1,6 @@
 <header class="main-header">
 	<!-- Logo -->
-	<a href="index2.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+	<a href="/" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b>S</b>J</span> <!-- logo for regular state and mobile devices -->
 		<span class="logo-lg"><b>SungJun's</b> Home</span>
 	</a>
@@ -189,22 +189,19 @@
 						<li class="footer"><a href="#">View all tasks</a></li>
 					</ul></li>
 				<!-- User Account: style can be found in dropdown.less -->
-				<li class="dropdown user user-menu"><a href="#"
-					class="dropdown-toggle" data-toggle="dropdown"> <img
-						src="/src/image/user2-160x160.jpg" class="user-image"
-						alt="User Image"> <span class="hidden-xs">Alexander
-							Pierce</span>
-				</a>
+				<li class="dropdown user user-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="https://scontent.xx.fbcdn.net/v/t1.0-1/c159.0.287.287/s160x160/271037_120418888045089_2281807_n.jpg?oh=ebab4f3f489171db920a5f6bed8c7b14&oe=57E2FB7D" class="user-image" alt="User Image"> 
+						<span class="hidden-xs">SungJun Kim</span>
+					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
-						<li class="user-header"><img
-							src="/src/image/user2-160x160.jpg" class="img-circle"
-							alt="User Image">
-
+						<li class="user-header">
+							<img src="https://scontent.xx.fbcdn.net/v/t1.0-1/c159.0.287.287/s160x160/271037_120418888045089_2281807_n.jpg?oh=ebab4f3f489171db920a5f6bed8c7b14&oe=57E2FB7D" class="img-circle" alt="User Image">
 							<p>
-								Alexander Pierce - Web Developer <small>Member since
-									Nov. 2012</small>
-							</p></li>
+								SungJun Kim <small>Member since Nov. 2016</small>
+							</p>
+						</li>
 						<!-- Menu Body -->
 						<li class="user-body">
 							<div class="row">

@@ -23,7 +23,7 @@
 			<li class="$!{sidebarMenuData.devtools} treeview"><a href="/"> <i class="fa fa-terminal"></i><span>Dev Tools</span><i class="fa fa-angle-left pull-right"></i></a>
 				<ul class="treeview-menu">
 					<li class="$!{sidebarMenuData.codegen}"><a href="/codegen"><i class="fa fa-code"></i> Code Gen</a></li>
-					<li class="$!{sidebarMenuData.github}"><a href="https://github.com/applepie1130/sungjun/tree/master/sungjun"><i class="fa fa-github"></i> SungJun's Github</a></li>
+					<li class="$!{sidebarMenuData.github}"><a href="https://github.com/applepie1130/sungjun/tree/master/sungjun" target="_blank"><i class="fa fa-github"></i> SungJun's Github</a></li>
 				</ul>
 			</li>
 		</ul>
