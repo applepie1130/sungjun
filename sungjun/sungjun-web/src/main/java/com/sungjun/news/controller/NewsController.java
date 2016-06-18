@@ -21,27 +21,9 @@ public class NewsController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
-		List<Object> sisaRankNewsList			= restTemplate.getForObject("http://localhost:8081/api/news/sisa-rank", List.class);
-		List<Object> sportsRankNewsList			= restTemplate.getForObject("http://localhost:8081/api/news/sports-rank", List.class);
-		List<Object> entertainmentRankNewsList	= restTemplate.getForObject("http://localhost:8081/api/news/entertainment-rank", List.class);
-		List<Object> naverRealRankList			= restTemplate.getForObject("http://localhost:8081/api/news/naver-realrank", List.class);
-		List<Object> daumRealRankList			= restTemplate.getForObject("http://localhost:8081/api/news/daum-realrank", List.class);
-		List<Object> financeUpperKospiList		= restTemplate.getForObject("http://localhost:8081/api/news/finance-upper-kospi", List.class);
-		List<Object> financeUpperKosdaqList		= restTemplate.getForObject("http://localhost:8081/api/news/finance-upper-kosdaq", List.class);
-		
-		System.out.println(sisaRankNewsList);
-		System.out.println(sportsRankNewsList);
-		System.out.println(entertainmentRankNewsList);
-		System.out.println(financeUpperKospiList);
-		System.out.println(financeUpperKosdaqList);
+		List<Object> sisaRankNewsList			= restTemplate.getForObject("http://localhost:8081/api/news/nate-rank?type=sisa", List.class);
 		
 		model.addAttribute("sisaRankNewsList", sisaRankNewsList);
-		model.addAttribute("sportsRankNewsList", sportsRankNewsList);
-		model.addAttribute("entertainmentRankNewsList", entertainmentRankNewsList);
-		model.addAttribute("naverRealRankList", naverRealRankList);
-		model.addAttribute("daumRealRankList", daumRealRankList);
-		model.addAttribute("financeUpperKospiList", financeUpperKospiList);
-		model.addAttribute("financeUpperKosdaqList", financeUpperKosdaqList);
 		model.addAttribute("sidebarMenuData", sidebarMenuData);
 		
 		return "/news/news";
