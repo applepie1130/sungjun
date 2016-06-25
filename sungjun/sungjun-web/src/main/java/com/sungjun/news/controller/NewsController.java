@@ -4,15 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.client.RestTemplate;
+
+import com.sungjun.news.service.NewsService;
 
 @Controller
 public class NewsController {
 	
+	@Autowired
+	NewsService newsService;
 	
 	@RequestMapping("/news")
 	public String findNewsMainPageNoParam(Model model) {
@@ -21,37 +25,36 @@ public class NewsController {
 
 	@RequestMapping("/news/{type}")
 	public String findNewsMainPage (@PathVariable String type, Model model) {
-		
 		// 선택 Sidebar 메뉴 셋팅
 		Map<String, String> sidebarMenuData = new HashMap<String, String>();
 		sidebarMenuData.put("news", "active");
 		
 		String title = "종합";
-		String url = "http://localhost:8081/api/news/nate-rank";
+		String color = "success";
 		
 		if ( "sisa".equals(type) ) {
 			title = "시사";
-			url += "?type=sisa"; 
+			color = "danger";
 			
 		} else if ( "sports".equals(type) ) {
 			title = "스포츠";
-			url += "?type=sports";
+			color = "primary";
 			
 		} else if ( "entertainment".equals(type) ) {
 			title = "연예";
-			url += "?type=entertainment";
+			color = "warning";
 			
 		} else {
 			title = "종합";
-			url += "?type=all";
+			color = "success";
 		}
 		
-		RestTemplate restTemplate = new RestTemplate();
-		List<Object> rankNewsList = restTemplate.getForObject(url, List.class);
+		List<Map<String, String>> rankNewsList = newsService.findNewsMainPage(type);
 		
 		model.addAttribute("rankNewsList", rankNewsList);
 		model.addAttribute("sidebarMenuData", sidebarMenuData);
 		model.addAttribute("title", title);
+		model.addAttribute("color", color);
 		
 		return "/news/news";
 	}

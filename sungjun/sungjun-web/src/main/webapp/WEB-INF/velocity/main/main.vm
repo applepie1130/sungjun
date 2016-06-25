@@ -28,7 +28,6 @@
 			</section>
 
 			<section class="content">
-
 				<div class="row">
 					<section class="col-md-9 connectedSortable ui-sortable">
 						<div class="box box-widget">
@@ -67,9 +66,6 @@
 						<div class="box box-widget">
 							<div class="box-header with-border bg-green" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
 								<h3 class="box-title">NAVER</h3>
-								<div class="pull-right box-tools">
-									<button type="button" class="btn btn-success btn-sm pull-right"><i class="fa fa-minus"></i></button>
-								</div>
 							</div>
 							<div class="box-footer no-padding">
 								<ul class="nav nav-stacked">
@@ -83,9 +79,6 @@
 						<div class="box box-widget">
 							<div class="box-header with-border bg-blue" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
 								<h3 class="box-title">DAUM</h3>
-								<div class="pull-right box-tools">
-									<button type="button" class="btn btn-primary btn-sm pull-right"><i class="fa fa-minus"></i></button>
-								</div>
 							</div>
 							<div class="box-footer no-padding">
 								<ul class="nav nav-stacked">
@@ -95,43 +88,6 @@
 								</ul>
 							</div>
 						</div>
-						
-						
-						
-						<!-- 
-						<div class="box box-solid">
-							<div class="box-header with-border">
-								<h3 class="box-title">실시간 검색어</h3>
-							</div>
-							<div class="box-body">
-								<div class="box-group" id="accordion">
-									<div class="box-header with-border bg-green" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
-										<h3 data-toggle="collapse" data-parent="#accordion" href="#collapseNaverRealRanking" class="box-title">NAVER</h3>
-									</div>
-									<div id="collapseNaverRealRanking" class="panel-collapse collapse in">
-										<div id="collapseNaverRealRanking" class="box-footer no-padding">
-											<ul class="nav nav-stacked">
-												#foreach( $eachData in $!{naverRealRankList} )
-												<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left: 10px;">$!{eachData.title}</span> <span class="pull-left badge bg-green">$!{eachData.rank}</span></a></li>
-												#end
-											</ul>
-										</div>
-									</div>
-									
-									<div class="box-header with-border bg-blue" style="border-top-left-radius: 3px; border-top-right-radius: 3px;">
-										<h3 data-toggle="collapse" data-parent="#accordion" href="#collapseDaumRealRanking" class="box-title">DAUM</h3>
-									</div>
-									<div id="collapseDaumRealRanking" class="panel-collapse collapse">
-										<ul class="nav nav-stacked">
-											#foreach( $eachData in $!{daumRealRankList} )
-											<li><a href="$!{eachData.link}" target="_blank"><span style="margin-left: 10px;">$!{eachData.title}</span> <span class="pull-left badge bg-blue">$!{eachData.rank}</span></a></li>
-											#end
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						 -->
 						<!-- #* [E] real ranking *# -->
 						
 					</section>
@@ -156,8 +112,16 @@
 			"use strict";
 
 			// The Calender
-			jQuery("#calendar").datepicker("setDate",
-					jQuery.datepicker.formatDate("yymmdd", new Date()));
+			jQuery("#calendar").datepicker("setDate", jQuery.datepicker.formatDate("yymmdd", new Date()));
+			
+			// Initialize Firebase
+			var config = {
+					apiKey: "AIzaSyALVvCP4HOvWR9Oq068lBsnecFmDfRiA4o",
+					authDomain: "project-2937303160878148244.firebaseapp.com",
+					databaseURL: "https://project-2937303160878148244.firebaseio.com",
+					storageBucket: "project-2937303160878148244.appspot.com",
+					};
+			firebase.initializeApp(config);
 		});
 	</script>
 </body>

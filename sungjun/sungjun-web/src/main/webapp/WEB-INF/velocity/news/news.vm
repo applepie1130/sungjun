@@ -29,52 +29,58 @@
 
 			<section class="content">
 				<div class="row">
-					<div class="pull-right" style="margin-right:40px; margin-bottom:-10px;">
-						<div class="btn-group">
-							<button type="button" class="btn btn-danger btn-sm" onclick="location.href='/news/'">종합뉴스</button>
-							<button type="button" class="btn btn-danger btn-sm" onclick="location.href='/news/sisa'">시사뉴스</button>
-							<button type="button" class="btn btn-danger btn-sm" onclick="location.href='/news/sports'">스포츠뉴스</button>
-							<button type="button" class="btn btn-danger btn-sm" onclick="location.href='/news/entertainment'">연예뉴스</button>
+					<div class="col-md-12">
+						<div class="pull-right" style="margin-bottom:10px;">
+							<div class="btn-group">
+								<button type="button" class="btn btn-$!{color} btn-sm" onclick="location.href='/news/'">종합뉴스</button>
+								<button type="button" class="btn btn-$!{color} btn-sm" onclick="location.href='/news/sisa'">시사뉴스</button>
+								<button type="button" class="btn btn-$!{color} btn-sm" onclick="location.href='/news/sports'">스포츠뉴스</button>
+								<button type="button" class="btn btn-$!{color} btn-sm" onclick="location.href='/news/entertainment'">연예뉴스</button>
+		                    </div>
 	                    </div>
                     </div>
 				</div>
-			
+				
+				#foreach( $eachData in $!{rankNewsList} )
 				<div class="row">
-					<div class="col-md-12">
-						<ul class="timeline">
-							<li class="time-label"><span class="bg-red"> 10 Feb. 2016 </span></li>
-							
-							#foreach( $eachData in $!{rankNewsList} )
-							<li>
-								<i class="fa fa-envelope bg-blue"></i>
-								<div class="timeline-item">
-									<span class="time"><i class="fa fa-clock-o"></i> $!{eachData.receiveDate}</span>
-
-									<h3 class="timeline-header">
-										$!{eachData.title} 
-									</h3>
-
-									<div class="timeline-body">
-										#if ( $!{eachData.imageUrl} != "" )
-										<img class="img-responsive pad" src="$!{eachData.imageUrl}" alt="Photo" />
-										#else
-										#end
-										
-										#if ( $!{eachData.contents} != "" )
-										$!{eachData.contents}
-										#else
-										#end
-									</div>
-									<div class="timeline-footer">
-										<a class="btn btn-primary btn-xs" href="$!{eachData.link}" target="_blank">Read more article</a>
-									</div>
+					<div class="col-md-6">
+						<div class="box box-$!{color}">
+							<div class="box-header with-border">
+								<div class="user-block">
+									<span class="username" style="margin-left: 0px;"><a href="$!{eachData.link}" target="_blank"> $!{eachData.title}</a></span>
+									
+									#if ( $!{eachData.receiveDate} ) 
+									<span class="time"><i class="fa fa-clock-o"></i> $!{eachData.receiveDate}</span>  
+									<!-- <span class="description" style="margin-left: 0px;">Shared publicly - $!{eachData.receiveDate} Today</span>-->
+									#end
+									
+									<span class="description pull-right" style="margin-left: 0px;">$!{eachData.cpName} </span>
+			              		</div>
+			              		<!-- 
+								<div class="box-tools">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			                		<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
 								</div>
-							</li>
-							#end
+								 -->
+							</div>
 							
-						</ul>
+							#if ( $!{eachData.imageUrl} && $!{eachData.contents} )
+							<div class="box-body">
+								#if ( $!{eachData.imageUrl} )
+								<div style="text-align: center;">
+									<img class="img-responsive pad" src="$!{eachData.imageUrl}" alt="Photo" style="display: inline-block;" />
+								</div>
+								#end
+								
+								#if ( $!{eachData.contents} )
+								<p>$!{eachData.contents}</p>
+								#end
+							</div>
+							#end
+						</div>
 					</div>
 				</div>
+				#end
 			</section>
 		</div>
 		<!-- #* [E] CONTENTS AREA *# -->
@@ -93,10 +99,6 @@
 	<script type="text/javascript">
 		jQuery(function() {
 			"use strict";
-
-			// The Calender
-			jQuery("#calendar").datepicker("setDate",
-					jQuery.datepicker.formatDate("yymmdd", new Date()));
 		});
 	</script>
 </body>
