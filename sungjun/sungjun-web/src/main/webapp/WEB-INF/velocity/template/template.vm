@@ -1,0 +1,100 @@
+<!-- #* [S] COMMON HEADER *# -->
+#parse( "/common/header.vm" )
+<!-- #* [E] COMMON HEADER *# -->
+
+<body>
+	<div id="main">
+	
+		<input type="button" id="button_1" value="확인" />
+		<input type="button" id="button_2" value="취소" />
+		
+		<select id="select_1">
+			<option value="1111">쿠폰1</option>
+			<option value="2222">쿠폰2</option>
+			<option value="3333">쿠폰3</option>		
+		</select>
+	</div>
+	
+	
+	<!-- #* [S] Common BODYJS *# -->
+	#parse( "/common/bodyJS.vm" )
+	<!-- #* [E] Common BODYJS *# -->
+	
+	<!-- http://backbonejs.org/examples/todos/index.html -->	
+	<script type="text/javascript">
+		jQuery(function() {
+			"use strict";
+			
+			var AppView = Backbone.View.extend({
+			    el: $("#main"),
+
+			    // Our template for the line of statistics at the bottom of the app.
+			    // statsTemplate: _.template($('#stats-template').html()),
+
+			    events: {
+			      "click #button_1"		: "confirm",
+			      "click #button_2"		: "cancel",
+			      "change #select_1"	: "change" 
+			    },
+
+			    // At initialization we bind to the relevant events on the `Todos`
+			    // collection, when items are added or changed. Kick things off by
+			    // loading any preexisting todos that might be saved in *localStorage*.
+			    /* initialize: function() {
+
+			      this.input = this.$("#new-todo");
+			      this.allCheckbox = this.$("#toggle-all")[0];
+
+			      this.listenTo(Todos, 'add', this.addOne);
+			      this.listenTo(Todos, 'reset', this.addAll);
+			      this.listenTo(Todos, 'all', this.render);
+
+			      this.footer = this.$('footer');
+			      this.main = $('#main');
+
+			      Todos.fetch();
+			    }, */
+
+/* 			    // Re-rendering the App just means refreshing the statistics -- the rest
+			    // of the app doesn't change.
+			    render: function() {
+			      var done = Todos.done().length;
+			      var remaining = Todos.remaining().length;
+
+			      if (Todos.length) {
+			        this.main.show();
+			        this.footer.show();
+			        this.footer.html(this.statsTemplate({done: done, remaining: remaining}));
+			      } else {
+			        this.main.hide();
+			        this.footer.hide();
+			      }
+
+			      this.allCheckbox.checked = !remaining;
+			    }, */
+
+			    // Add a single todo item to the list by creating a view for it, and
+			    // appending its element to the `<ul>`.
+			    confirm : function() {
+					alert("확인!");			    	
+			    },
+			    
+				cancel : function() {
+					alert("취소!");					
+				},
+			    
+			    change : function(e) {
+			    	var value = e.target.value;
+			    	alert(value);
+			    }
+			});
+
+			// Finally, we kick things off by creating the **App**.
+			var App = new AppView();
+		});
+	</script>
+</body>
+
+<!-- #* [S] Common FOOTER *# -->
+#parse( "/common/footer.vm" )
+<!-- #* [E] Common FOOTER *# -->
