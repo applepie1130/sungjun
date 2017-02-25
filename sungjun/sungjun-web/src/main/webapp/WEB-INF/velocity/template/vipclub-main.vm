@@ -1,0 +1,183 @@
+<!-- #* [S] COMMON HEADER *# -->
+#parse( "/common/header.vm" )
+<!-- #* [E] COMMON HEADER *# -->
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="stylesheet" type="text/css" href="/src/css/font.css">
+<link rel="stylesheet" type="text/css" href="/src/css/benefit.css">
+<link rel="stylesheet" type="text/css" href="/src/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/src/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/src/css/common.css">
+
+<body>
+	<div id="container">
+		<div id="content">
+			<div class="myzone_benefit">
+				<div class="vipclub_spot_area">
+					<div class="swipe_pop">
+						<h2 class="blind">이벤트 목록</h2>
+						<ul class="lst_spot">
+						<li>
+							<div class="spot_cont">
+								<div class="inn">
+									<h3 class="tit">11111</h3>
+									<span class="grade">1</span>
+									<div class="info">
+										<ul>
+										<li class="count"><span>3526</span>명 신청중</li>
+										<li class="date">2015.11.01 ~ 11.31</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img src="/src/image/vipclub/vipclub_ban1.jpg" alt="이벤트이미지" width="320" height="155">
+						</li>
+						<li>
+							<div class="spot_cont">
+								<div class="inn">
+									<h3 class="tit">2222222</h3>
+									<span class="grade">2</span>
+									<div class="info">
+										<ul>
+										<li class="count"><span>3526</span>명 신청중</li>
+										<li class="date">2015.11.01 ~ 11.31</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img src="/src/image/vipclub/vipclub_ban1.jpg" alt="이벤트이미지" width="320" height="155">
+						</li>
+						<li>
+							<div class="spot_cont">
+								<div class="inn">
+									<h3 class="tit">3333333</h3>
+									<span class="grade">3</span>
+									<div class="info">
+										<ul>
+										<li class="count"><span>3526</span>명 신청중</li>
+										<li class="date">2015.11.01 ~ 11.31</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img src="/src/image/vipclub/vipclub_ban1.jpg" alt="이벤트이미지" width="320" height="155">
+						</li>
+						<li>
+							<div class="spot_cont">
+								<div class="inn">
+									<h3 class="tit">4444444444</h3>
+									<span class="grade">4</span>
+									<div class="info">
+										<ul>
+										<li class="count"><span>3526</span>명 신청중</li>
+										<li class="date">2015.11.01 ~ 11.31</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img src="/src/image/vipclub/vipclub_ban1.jpg" alt="이벤트이미지" width="320" height="155">
+						</li>
+						<div class="btn_area">
+							<button type="button" class="btn_ctr btn_prev"><span class="blind">이전</span></button>
+							<button type="button" class="btn_ctr btn_next"><span class="blind">다음</span></button>
+						</div>
+						</ul>
+						<div class="indicator">
+							<a href="#" class="on"><span class="blind">1</span></a>
+							<a href="#"><span class="blind">2</span></a>
+							<a href="#"><span class="blind">3</span></a>
+							<a href="#"><span class="blind">4</span></a>
+						</div>
+						<a href="#" class="btn_whole"><span class="blind">vipclub 이벤트목록</span>전체보기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+	<!-- #* [S] Common BODYJS *# -->
+	#parse( "/common/bodyJS.vm" )
+	<!-- #* [E] Common BODYJS *# -->
+	
+	<!-- http://backbonejs.org/examples/todos/index.html -->	
+	<script type="text/javascript">
+		jQuery(function() {
+			"use strict";
+			
+			var AppView = Backbone.View.extend({
+				el: jQuery("#container"),
+			    
+			    initialize: function( options ) {
+			    	var s = this;
+			    },
+			    
+			    events: {
+			      "click .btn_prev"		: "prev",
+			      "click .btn_next"		: "next",
+			      "click #pannel"		: "link",
+			    },
+			    
+			    link : function(e) {
+			    	var s = this;
+			    	console.log(link);
+			    },
+			    
+			    prev : function(e) {
+					var s = this;
+					var lastPannel = $(".lst_spot > li").last();
+					
+					// 맨 마지막 판을 맨 앞로 이동
+					$(".lst_spot").prepend( lastPannel );
+					
+					// Indicator 변경
+					var currentIndicator = $(".indicator .on");
+					currentIndicator.removeClass("on");
+					
+					if ( currentIndicator.prev().length === 0 ) {		// 더 이상 이전 요소가 없다면 맨 마지막 요소를 타겟팅
+						$(".indicator > a").last().addClass("on");
+					} else {
+						currentIndicator.prev().addClass("on");			// 이전요소가있다면 이전요소를 타겟팅
+					}
+					
+			    },
+			    
+			    next : function(e) {
+					var s = this;
+					var currentPannel = $(".lst_spot > li").eq(0);
+					
+					// 현재 판을 맨 뒤로 이동
+					$(".btn_area").before( currentPannel );
+					
+					// Indicator 변경 
+					var currentIndicator = $(".indicator .on");
+					currentIndicator.removeClass("on");
+					
+					if ( currentIndicator.next().length === 0 ) {		// 더 이상 다음 요소가 없다면 맨 첫번째 요소를 타겟팅
+						$(".indicator > a").first().addClass("on");
+					} else {
+						currentIndicator.next().addClass("on");			// 다음요소가있다면 다음요소를 타겟팅
+					} 
+				},
+				
+				changeIndicator : function () {
+					var s = this;
+					 
+				},
+				
+			    render: function() {
+					var s = this;
+			    }
+			    
+			});
+
+			var App = new AppView();
+		});
+	</script>
+</body>
+
+<!-- #* [S] Common FOOTER *# -->
+#parse( "/common/footer.vm" )
+<!-- #* [E] Common FOOTER *# -->

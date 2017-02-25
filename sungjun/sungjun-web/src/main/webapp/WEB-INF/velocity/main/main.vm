@@ -25,7 +25,10 @@
 					<li><a href="#"><i class="fa fa-home"></i> SungJun's Home</a></li>
 					<li class="active">Home</li>
 				</ol>
+				
+				<input type="button" name="btn_click" id="btn_click" value="클릭테스트" />
 			</section>
+			
 
 			<section class="content">
 				<div class="row">
@@ -110,18 +113,17 @@
 	<script type="text/javascript">
 		jQuery(function() {
 			"use strict";
-
-			// The Calender
+			
 			jQuery("#calendar").datepicker("setDate", jQuery.datepicker.formatDate("yymmdd", new Date()));
 			
 			// Initialize Firebase
-			var config = {
+			var config = {/* 
 					apiKey: "AIzaSyALVvCP4HOvWR9Oq068lBsnecFmDfRiA4o",
 					authDomain: "project-2937303160878148244.firebaseapp.com",
 					databaseURL: "https://project-2937303160878148244.firebaseio.com",
 					storageBucket: "project-2937303160878148244.appspot.com",
 					};
-			firebase.initializeApp(config);
+			firebase.initializeApp(config); */
 		});
 	</script>
 </body>

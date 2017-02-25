@@ -14,8 +14,7 @@
 	<script src="/webjars/adminlte/2.3.3/dist/js/demo.js"></script>
 	<script src="/webjars/adminlte/2.3.3/plugins/daterangepicker/daterangepicker.js"></script>
 	<script src="/webjars/adminlte/2.3.3/plugins/datepicker/bootstrap-datepicker.js"></script>
-	
 	<script src="/webjars/CodeMirror/4.8.0/lib/codemirror.js"></script>
 	<script src="/webjars/CodeMirror/4.8.0/mode/sql/sql.js"></script>
-	
-	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script src="/webjars/swiper/3.4.1/dist/js/swiper.min.js"></script>
+	<script src="/src/js/jquery.ajax-cross-origin.min.js"></script>

@@ -152,6 +152,11 @@
 			<artifactId>CodeMirror</artifactId>
 			<version>4.8.0</version>
 		</dependency>
+		<dependency>
+    		<groupId>org.webjars.bower</groupId>
+    		<artifactId>swiper</artifactId>
+    		<version>3.4.1</version>
+		</dependency>
 		<!-- [E] WebJar -->
 
 		<!-- [S] Logging -->
@@ -177,6 +182,14 @@
 			<version>0.2.7</version>
 		</dependency>
 		<!-- [E] Logging -->
+		
+		<!-- [S] Jedis Client -->
+		<dependency>
+    		<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<!-- [E] Jedis Client -->
 		
 		<dependency>
 			<groupId>commons-httpclient</groupId>
