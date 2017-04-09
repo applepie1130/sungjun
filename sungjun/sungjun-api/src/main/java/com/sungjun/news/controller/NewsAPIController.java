@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sungjun.news.service.NewsAPIService;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 @RestController
 @RequestMapping("/api/news/")
 public class NewsAPIController {
